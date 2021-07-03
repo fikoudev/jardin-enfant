@@ -1,0 +1,58 @@
+{% extends '@AppBundle/Resources/views/default/index.html.twig' %}
+
+{% block body %}
+    {% block header %}{{ parent() }}{% endblock %}
+    <div class="section__title text-center">
+        <h1 class="title__line">Class List</h1>
+    </div>
+    </br> </br>
+    <div>
+        <input id="myInput" type="search" placeholder="Search ..."  style="background-image: url({{ asset('images/icon/seachicon.png')}}) ;background-repeat: no-repeat ; height: 40px ; background-position: right center"  />
+    </div>
+    <br><br>
+    <div class="wishlist-table table-responsive">
+        <table>
+
+            <thead>
+
+            <tr>
+                <th><h4>Nom</h4></th>
+                <th><h4>Nombre Maximale</h4></th>
+                <th><h4>Actions</h4></th>
+            </tr>
+
+            </thead>
+
+            <tbody id="myTable">
+            {% for class in classes %}
+                <tr>
+                    <td>{{ class.nom }}</td>
+                    <td><a href="{{ path('class_show', { 'idClasse': class.idClasse }) }}">{{ class.nom }}</a></td>
+                    <td>{{ class.nbrmax }}</td>
+
+                    <td>
+                        <ul>
+                            <li>
+                                <h4> <a href="{{ path('class_show', { 'idClasse': class.idClasse }) }}">show</a></h4>
+                            </li>
+                            <li>
+                                <h4><a "{{ path('class_edit', { 'idClasse': class.idClasse }) }}">edit</a><h4>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div id="mc_embed_signup_scroll" class="htc__news__inner">
+        <div class="choose__inner">
+            <ul>
+                <li>
+                    <h4> <a href="{{ path('class_new') }}">Add Class</a></h4>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% block footer %}{{ parent() }}{% endblock %}
+{% endblock %}

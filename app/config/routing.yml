@@ -1,0 +1,73 @@
+reclamation:
+    resource: "@ReclamationBundle/Resources/config/routing.yml"
+    prefix:   /reclamation
+
+app_reclamer:
+    resource: "@ReclamationBundle/Controller/ReclamerController.php"
+    type:     annotation
+
+app_demande:
+    resource: "@DemandeBundle/Controller/DemandeController.php"
+    type:     annotation
+
+demande:
+    resource: "@DemandeBundle/Resources/config/routing.yml"
+    prefix:   /demande
+app_bundle:
+    resource: "@AppBundle/Resources/config/routing.yml"
+    prefix:   /
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+fos_user_registration_register:
+    path:      /registerAjax
+    defaults:  { _controller: AppBundle:Registration:register }
+
+fos_user_security_login:
+    path:      /loginAjax
+    defaults:  { _controller: fos_user.security.controller:loginAction }
+
+fos_user_resetting_send_email:
+    path:      /resetting/send-email
+    defaults:  { _controller: AppBundle:Resetting:sendEmail }
+
+fos_user_resetting_reset:
+    path:      /resetting/reset/{token}
+    defaults:  { _controller: AppBundle:Resetting:reset }
+
+menu:
+    resource: "@MenuBundle/Resources/config/routing.yml"
+    prefix:   /menu
+
+app_menu:
+    resource: "@MenuBundle/Controller/MenuController.php"
+    type:     annotation
+
+
+enfant:
+    resource: "@EnfantBundle/Resources/config/routing.yml"
+    prefix:   /enfant
+
+app_enfant:
+    resource: "@EnfantBundle/Controller/EnfantController.php"
+    type:     annotation
+
+event:
+    resource: "@EventBundle/Resources/config/routing.yml"
+    prefix:   /event
+
+app_event:
+    resource: "@EventBundle/Controller/EventController.php"
+    type:     annotation
+
+classe:
+    resource: "@ClassBundle/Resources/config/routing.yml"
+    prefix:   /classe
+
+app_classe:
+    resource: "@ClassBundle/Controller/ClassController.php"
+    type:     annotation
